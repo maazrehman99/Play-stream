@@ -1,15 +1,17 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Stack, Box, Typography } from "@mui/material";
-import {Sidebar,Videos} from "./";
+import { Sidebar, Videos } from "./";
 import { fetchFromAPI } from "../utilis/fetchFromAPI";
 
 const Feed = () => {
+  const [selectedCategory, setSelectedCategory] = useState("New");
+  const [videos, setVideos] = useState([]);
 
-  const [selectedCategory, setSelectedCategory] = useState('New');
-useEffect(() => {
-  fetchFromAPI(`search?part=snippet&q=${selectedCategory}`);
-},[selectedCategory])
+  useEffect(() => {
+    fetchFromAPI(`search?part=snippet&q=${selectedCategory}`)
+   .then((data) => setVideos(data.items));
+  }, [selectedCategory]);
 
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
@@ -20,7 +22,10 @@ useEffect(() => {
           px: { sx: 0, md: 2 },
         }}
       >
-        <Sidebar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+        <Sidebar
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
         <Typography
           className="copyright"
           variant="body2"
@@ -29,7 +34,7 @@ useEffect(() => {
           Copyright @2021 TikTik. All rights reserved.
         </Typography>
       </Box>
-      <Box overflowY="auto" height="90vh" flex={2}>
+      <Box p={2} overflowY="auto" height="90vh" flex={2}>
         <Typography
           variant="h4"
           fontWeight={"bold"}
@@ -38,8 +43,8 @@ useEffect(() => {
         >
           {selectedCategory} <span style={{ color: "#FC1503" }}>Videos</span>
         </Typography>
+      <Videos videos={videos} />
       </Box>
-      <Videos videos={[]} />
     </Stack>
   );
 };
