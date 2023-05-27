@@ -2,8 +2,8 @@ import React from "react";
 import { Stack } from "@mui/material";
 import { categories } from "../utilis/constant";
 
-const selectedCategory = "New";
-const Sidebar = () => (
+
+const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
   <Stack
     sx={{
       overflowY: "auto ",
@@ -13,6 +13,7 @@ const Sidebar = () => (
   >
     {categories.map((category) => (
       <button key={category.name}
+        onClick={() => setSelectedCategory(category.name)}
         className="category-btn"
         style={{
           background: category.name === selectedCategory && "#FC1503",
