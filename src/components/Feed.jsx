@@ -1,14 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Stack, Box, Typography } from "@mui/material";
-import Sidebar from "./Sidebar";
+import {Sidebar,Videos} from "./";
 
 const Feed = () => {
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box
         sx={{
-          height: { sx: "auto", md: '92vh' },
+          height: { sx: "auto", md: "92vh" },
           borderRight: "1px solid #3d3d3d",
           px: { sx: 0, md: 2 },
         }}
@@ -22,6 +22,17 @@ const Feed = () => {
           Copyright @2021 TikTik. All rights reserved.
         </Typography>
       </Box>
+      <Box overflowY="auto" height="90vh" flex={2}>
+        <Typography
+          variant="h4"
+          fontWeight={"bold"}
+          mb={2}
+          sx={{ color: "#fff" }}
+        >
+          New <span style={{ color: "#FC1503" }}>Videos</span>
+        </Typography>
+      </Box>
+      <Videos/>
     </Stack>
   );
 };
