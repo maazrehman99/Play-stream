@@ -16,7 +16,7 @@ const Videos = ({ videos }) => {
      <Box key={idx}>
      
       {item.id.videoId && <Videocard video={item} />}
-      {/* {item.id.channelId && <Channelcard channeldetail={item} />} */}
+      {item.id.channelId && <Channelcard channeldetail={item} />}
      
      </Box>
    ))}
