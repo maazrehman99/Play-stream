@@ -17,10 +17,11 @@ export const logo = "https://i.ibb.co/s9Qys2j/logo.png";
 
 export const categories = [
   { name: "New", icon: <HomeIcon /> },
-  { name: "JS Matsery", icon: <Flight /> },
+
   { name: "Coding", icon: <CodeIcon /> },
   { name: "ReactJS", icon: <CodeIcon /> },
   { name: "NextJS", icon: <CodeIcon /> },
+  { name: "Travel", icon: <Flight /> },
   { name: "Music", icon: <MusicNoteIcon /> },
   { name: "Education", icon: <SchoolIcon /> },
   { name: "Podcast", icon: <GraphicEqIcon /> },

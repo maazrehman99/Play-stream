@@ -1,26 +1,23 @@
 import React from "react";
 import { Stack, Box, Typography } from "@mui/material";
-import {Videocard, Channelcard} from "./";
+import { Videocard, Channelcard } from "./";
 
+const Videos = ({ videos, direction }) => {
 
-const Videos = ({ videos,direction }) => {
-  console.log(videos);
   return (
     <Stack
-      direction={direction ||"row"}
-      flexWrap= "wrap"
+      direction={direction || "row"}
+      flexWrap="wrap"
       justifyContent={"start"}
       gap={2}
     >
-   {videos.map((item,idx) => (
-     <Box key={idx}>
-     
-      {item.id.videoId && <Videocard video={item} />}
-      {/* {item.id.channelId && <Channelcard channeldetail={item} />} */}
-     
-     </Box>
-   ))}
-
+      {/* Map through the videos and render the Videocard for each video */}
+      {videos.map((item, idx) => (
+        <Box key={idx}>
+          {/* Render the Videocard only if videoId exists */}
+          {item.id.videoId && <Videocard video={item} />}
+        </Box>
+      ))}
     </Stack>
   );
 };

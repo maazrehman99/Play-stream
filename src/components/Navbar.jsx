@@ -1,10 +1,11 @@
 import React from "react";
 import { Stack } from "@mui/material";
 import { Link } from "react-router-dom";
-import { logo } from "../utilis/constant";
+import { logo } from "../utils/constant";
 import SearchBar from "./SearchBar";
 
 const Navbar = () => (
+  // Create a horizontal stack container for the Navbar components
   <Stack
     direction={"row"}
     alignItems={"center"}
@@ -16,11 +17,14 @@ const Navbar = () => (
       backgroundColor: "#000",
     }}
   >
-    <Link to={'/'}>
-      <img src={logo} alt="logo" style={{ height:"45px" }} />
-    
+    {/* Create a Link component to navigate to the homepage */}
+    <Link to={"/"}>
+      {/* Display the logo image */}
+      <img src={logo} alt="logo" style={{ height: "45px" }} />
     </Link>
-    <SearchBar/>
+
+    {/* Render the SearchBar component */}
+    <SearchBar />
   </Stack>
 );
 

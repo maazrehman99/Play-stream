@@ -1,9 +1,10 @@
 import React from "react";
 import { Stack } from "@mui/material";
 
-import { categories } from "../utilis/constant";
+import { categories } from "../utils/constant";
 
 const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
+  // Create a Stack component for the sidebar with a scrollable container
   <Stack
     direction="row"
     sx={{
@@ -12,6 +13,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
       flexDirection: { md: "column" },
     }}
   >
+    {/* Map through the categories and render a button for each */}
     {categories.map((category) => (
       <button
         className="category-btn"
@@ -22,6 +24,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
         }}
         key={category.name}
       >
+        {/* Display the category icon */}
         <span
           style={{
             color: category.name === selectedCategory ? "white" : "red",
@@ -30,6 +33,7 @@ const Sidebar = ({ selectedCategory, setSelectedCategory }) => (
         >
           {category.icon}
         </span>
+        {/* Display the category name */}
         <span
           style={{ opacity: category.name === selectedCategory ? "1" : "0.8" }}
         >
